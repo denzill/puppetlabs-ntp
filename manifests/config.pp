@@ -23,7 +23,7 @@ class ntp::config {
           match  => '^OPTIONS\=',
         }
       }
-      if $ntp::user and $facts['os']['release']['major'] != '6' {
+      if $ntp::user and $facts['os']['release']['major'] == '7' {
         file_line { 'Set NTPD daemon user':
           ensure => present,
           path   => '/etc/systemd/system/multi-user.target.wants/ntpd.service',
